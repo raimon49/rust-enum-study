@@ -8,6 +8,12 @@ enum Ordering {
     Greater
 }
 */
+use self::Pet::*; // 現在のモジュールで宣言されているvariantを全てインポートするにはselfインポートを使う
+#[derive(PartialEq)]
+enum Pet {
+    Orca,
+    Giraffe
+}
 
 fn compare(n: i32, m: i32) -> Ordering {
     if n < m {
@@ -21,4 +27,8 @@ fn compare(n: i32, m: i32) -> Ordering {
 
 fn main() {
     let _result = compare(3, 4);
+
+    if Orca != Giraffe {
+        println!("Orca is not Giraffe");
+    }
 }
