@@ -1,6 +1,6 @@
 use std::cmp::Ordering;
 use std::cmp::Ordering::*;
-// 以下の定義を持つEnumを全てインポート
+// 以下の定義を持つEnumとそのvariantを全てインポート
 /*
 enum Ordering {
     Less,
