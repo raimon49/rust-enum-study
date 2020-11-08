@@ -42,6 +42,29 @@ enum HttpStatus {
     NotFound = 404
 }
 
+#[derive(Copy, Clone, Debug, PartialEq)]
+enum TimeUnit {
+    Seconds, Minutes, Hours, Days, Months, Years
+}
+
+// enumもstructと同様にメソッドを実装できる
+impl TimeUnit {
+    fn plural(self) -> &'static str {
+        match self {
+            TimeUnit::Seconds => "seconds",
+            TimeUnit::Minutes => "minutes",
+            TimeUnit::Hours => "hours",
+            TimeUnit::Days => "days",
+            TimeUnit::Months => "months",
+            TimeUnit::Years => "years"
+        }
+    }
+
+    fn singlar(self) -> &'static str {
+        self.plural().trim_end_matches('s')
+    }
+}
+
 fn main() {
     let _result = compare(3, 4);
 
