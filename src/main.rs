@@ -77,4 +77,11 @@ fn main() {
     assert_eq!(size_of::<HttpStatus>(), 2); // 自分で割り当てた404はu8に収まらないため2バイト使う
     assert_eq!(HttpStatus::Ok as i32, 200); // 列挙型から整数型へのキャストはできるが逆方向はできない
     assert_eq!(HttpStatus::NotModified, http_status_from_u32(304).unwrap()); // よって、自分でチェックして整数型->列挙型へ変換する
+
+    assert_eq!(TimeUnit::singlar(TimeUnit::Seconds), "second");
+    assert_eq!(TimeUnit::singlar(TimeUnit::Minutes), "minute");
+    assert_eq!(TimeUnit::singlar(TimeUnit::Hours), "hour");
+    assert_eq!(TimeUnit::singlar(TimeUnit::Days), "day");
+    assert_eq!(TimeUnit::singlar(TimeUnit::Months), "month");
+    assert_eq!(TimeUnit::singlar(TimeUnit::Years), "year");
 }
