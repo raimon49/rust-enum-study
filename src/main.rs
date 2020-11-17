@@ -65,6 +65,14 @@ impl TimeUnit {
     }
 }
 
+// タプル型variantを持つ列挙型
+#[derive(Copy, Clone, Debug, PartialEq)]
+enum RoughTime {
+    InThePast(TimeUnit, u32),
+    JustNow,
+    InTheFuture(TimeUnit, u32)
+}
+
 fn main() {
     let _result = compare(3, 4);
 
