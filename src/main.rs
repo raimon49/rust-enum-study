@@ -94,4 +94,5 @@ fn main() {
     assert_eq!(TimeUnit::singlar(TimeUnit::Years), "year");
 
     let _four_score_and_seven_years_ago = RoughTime::InThePast(TimeUnit::Years, 4*20 + 7);
+    let _three_hours_from_now = RoughTime::InTheFuture(TimeUnit::Hours, 3);
 }
