@@ -92,4 +92,6 @@ fn main() {
     assert_eq!(TimeUnit::singlar(TimeUnit::Days), "day");
     assert_eq!(TimeUnit::singlar(TimeUnit::Months), "month");
     assert_eq!(TimeUnit::singlar(TimeUnit::Years), "year");
+
+    let _four_score_and_seven_years_ago = RoughTime::InThePast(TimeUnit::Years, 4*20 + 7);
 }
