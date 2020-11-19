@@ -73,6 +73,16 @@ enum RoughTime {
     InTheFuture(TimeUnit, u32)
 }
 
+use std::collections::HashMap;
+enum Json {
+    Null,
+    Boolean(bool),
+    Number(f64),
+    String(String),
+    Array(Vec<Json>),
+    Object(Box<HashMap<String, Json>>) // Box<HashMap>はヒープ上で取られたデータへのポインタのためJsonを小さくできる
+}
+
 fn main() {
     let _result = compare(3, 4);
 
