@@ -83,6 +83,18 @@ enum Json {
     Object(Box<HashMap<String, Json>>) // Box<HashMap>はヒープ上で取られたデータへのポインタのためJsonを小さくできる
 }
 
+// ジェネリック列挙型 + ジェネリック構造体で任意個数の型Tを保持するBinaryTreeを定義
+enum BinaryTree<T> {
+    Empty,
+    NonEmpty(Box<TreeNode<T>>)
+}
+
+struct TreeNode<T> {
+    element: T,
+    left: BinaryTree<T>,
+    right: BinaryTree<T>
+}
+
 fn main() {
     let _result = compare(3, 4);
 
@@ -107,4 +119,16 @@ fn main() {
     let three_hours_from_now = RoughTime::InTheFuture(TimeUnit::Hours, 3);
     assert_ne!(four_score_and_seven_years_ago, RoughTime::JustNow);
     assert_ne!(three_hours_from_now, RoughTime::JustNow);
+
+    use self::BinaryTree::*;
+    let jupiter_tree = NonEmpty(Box::new(TreeNode {
+        element: "Jupiter",
+        left: Empty,
+        right: Empty
+    }));
+    let _mars_tree = NonEmpty(Box::new(TreeNode {
+        element: "Mars",
+        left: jupiter_tree,
+        right: Empty
+    }));
 }
