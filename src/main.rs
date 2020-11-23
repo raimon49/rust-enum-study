@@ -73,6 +73,18 @@ enum RoughTime {
     InTheFuture(TimeUnit, u32)
 }
 
+fn rough_time_to_english(rt: RoughTime) -> String {
+    // 列挙型フィールドのデータに安全にアクセスするにはパターンマッチを用いる
+    match rt {
+        RoughTime::InThePast(units, count) =>
+            format!("{} {} ago", count, units.plural()),
+        RoughTime::JustNow =>
+            format!("Just now"),
+        RoughTime::InTheFuture(units, count) =>
+            format!("{} {} from now", count, units.plural())
+    }
+}
+
 use std::collections::HashMap;
 enum Json {
     Null,
