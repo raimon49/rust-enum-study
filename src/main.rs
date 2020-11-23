@@ -133,6 +133,8 @@ fn main() {
     let three_hours_from_now = RoughTime::InTheFuture(TimeUnit::Hours, 3);
     assert_ne!(four_score_and_seven_years_ago, RoughTime::JustNow);
     assert_ne!(three_hours_from_now, RoughTime::JustNow);
+    println!("{}", rough_time_to_english(four_score_and_seven_years_ago));
+    println!("{}", rough_time_to_english(RoughTime::JustNow));
 
     use self::BinaryTree::*;
     let jupiter_tree = NonEmpty(Box::new(TreeNode {
