@@ -80,6 +80,8 @@ fn rough_time_to_english(rt: RoughTime) -> String {
             format!("{} {} ago", count, units.plural()),
         RoughTime::JustNow =>
             format!("Just now"),
+        RoughTime::InTheFuture(units, 1) =>
+            format!("a {} from now", units.singlar()),
         RoughTime::InTheFuture(units, count) =>
             format!("{} {} from now", count, units.plural())
     }
