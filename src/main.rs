@@ -109,6 +109,24 @@ struct TreeNode<T> {
     right: BinaryTree<T>
 }
 
+fn print_char(c: char) {
+    // パターンマッチのinclusive（閉区間）マッチ
+    // ...の書き方は非推奨になり..=を使う
+    let printing = match c {
+        '0' ..= '9' =>
+            "number 0-9",
+        'a' ..= 'z' | 'A' ..= 'Z' =>
+            "alphabet",
+        ' ' | '\t' | '\n' =>
+            "whitespace",
+        _ => {
+            "unknown char"
+        }
+    };
+
+    println!("{}", printing);
+}
+
 fn main() {
     let _result = compare(3, 4);
 
@@ -147,4 +165,7 @@ fn main() {
         left: jupiter_tree,
         right: Empty
     }));
+
+    print_char('\t');
+    print_char('Z');
 }
