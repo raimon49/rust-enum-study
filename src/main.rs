@@ -186,6 +186,9 @@ fn main() {
         left: jupiter_tree,
         right: Empty
     }));
+    let mut tree = BinaryTree::Empty;
+    tree.add("Mercury");
+    tree.add("Venus");
 
     print_char('\t');
     print_char('Z');
