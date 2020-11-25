@@ -113,12 +113,14 @@ impl<T: Ord> BinaryTree<T> {
     fn add(&mut self, value: T) {
         match *self {
             BinaryTree::Empty =>
+                // もしツリーが空だったら、サブツリーが両方ともEmptyのNonEmptyなツリーに変える
                 *self = BinaryTree::NonEmpty(Box::new(TreeNode {
                     element: value,
                     left: BinaryTree::Empty,
                     right: BinaryTree::Empty
                 })),
             BinaryTree::NonEmpty(ref mut node) =>
+                // Emptyでなければ左右どちらかのサブツリーに再帰的に.add()を呼び出す
                 if value <= node.element {
                     node.left.add(value);
                 } else {
